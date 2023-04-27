@@ -1,0 +1,64 @@
+.cusview {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+
+.top {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    background-color: rgb(235, 176, 166);
+    border-radius: 15px;
+}
+
+.item ul {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    margin-top: 10px;
+}
+
+.item ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.item ul li a:hover {
+    color: rgb(255, 251, 250);
+    background-color: tomato;
+    border-radius: 15px;
+}
+
+.row {
+    height: 200px;
+}
+
+.col {
+    height: 200px;
+}
+
+.right {
+    background-color: rgb(14, 122, 194);
+    border-radius: 20px;
+}
+
+.right a {
+    color: white;
+    text-decoration: none;
+}
+.right a:hover {
+    color: rgb(0, 0, 0);
+}
+
+h2 {
+    background-color: rgb(235, 176, 166);
+    padding: 5px;
+    border-radius: 15px;
+    text-align: center;
+}
