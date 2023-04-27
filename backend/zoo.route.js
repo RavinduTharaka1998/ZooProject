@@ -27,46 +27,99 @@ zooRoutes.route('/').get(function (req, res){
 
 });
 
-// businessRoutes.route('/edit/:id').get(function (req,res){
-//     let id = req.params.id;
-//     Customers.findById(id, function (err,customers){
-//         res.json(customers);
-//     });
-// });
+zooRoutes.route('/getoneprojet/:id').get(function (req, res){
+    let id = req.params.id;
+    console.log("Get One Project id " +id);
+    Projects.findOne({$and:[{_id : id}]},function (err,pro){
+        if(err)
+            console.log(err);
+        else{
+            res.json(pro)
+        }
+    });
 
-// businessRoutes.route('/update/:id').post(function (req,res){
-//     let id = req.params.id;
-//     Customers.findById(id, function (err, customers){
-//         if(!customers)
-//             res.status(404).send("Data is not found??");
-//         else{
-//             customers.name = req.body.name;
-//             customers.address = req.body.address;
-//             customers.nic = req.body.nic;
-//             customers.phone = req.body.phone;
-//             customers.customer_type = req.body.customer_type;
-//             customers.email = req.body.email;
-//             customers.password = req.body.password;
+});
+
+zooRoutes.route('/editproject/:id').get(function (req,res){
+    let id = req.params.id;
+    Projects.findById(id, function (err,project){
+        res.json(project);
+    });
+});
+
+zooRoutes.route('/updateproject/:id').post(function (req,res){
+    let id = req.params.id;
+    console.log("Update Project id " +id);
+    Projects.findById(id, function (err, projects){
+        if(!projects)
+            res.status(404).send("Data is not found??");
+        else{
+            projects.tittle = req.body.tittle;
+            projects.owner = req.body.owner;
+            projects.amount = req.body.amount;
+            projects.description = req.body.description;
+            projects.type = req.body.type;
+            projects.duration = req.body.duration;
+            projects.status = req.body.status;
 
 
-//             customers.save().then(business => {
-//                 res.json('Update Complete');
-//             })
-//                 .catch(err =>{
-//                     res.status(400).send("Unable to update data");
-//                 });
-//         }
-//     });
-// });
+            projects.save().then(projects => {
+                res.json('Update Complete');
+            })
+            .catch(err =>{
+                    res.status(400).send("Unable to update data");
+            });
+        }
+    });
+});
 
-// businessRoutes.route('/delete/:id').get(function(req,res){
-//     Customers.findByIdAndRemove({_id:req.params.id}, function (err, customers){
-//         if(err)res.json(err);
+zooRoutes.route('/admindeleteproject/:id').get(function(req,res){
+    Projects.findByIdAndRemove({_id:req.params.id}, function (err, projects){
+        if(err)res.json(err);
 
-//         else res.json('Successfully Removed');
-//     });
-// });
+        else res.json('Successfully Removed');
+    });
+});
 
+zooRoutes.route('/adminacceptproject/:id').get(function (req,res){
+ 
+    let id = req.params.id;
+    console.log("Accept Project id : "+id)
+    Projects.findById(id, function (err, projects){
+        if(!projects)
+            res.status(404).send("Data is not found??");
+        else{
+            projects.status = "accepted";
+
+            projects.save().then(projects => {
+                res.json('Update Completed');
+            })
+                .catch(err =>{
+                    res.status(400).send("Unable to update data");
+                });
+        }
+    });
+});
+
+zooRoutes.route('/adminrejectproject/:id').get(function (req,res){
+ 
+    let id = req.params.id;
+    console.log("Reject Project id : "+id)
+    Projects.findById(id, function (err, projects){
+        if(!projects)
+            res.status(404).send("Data is not found??");
+        else{
+            projects.status = "rejected!!!";
+
+            projects.save().then(projects => {
+                res.json('Update Completed');
+            })
+                .catch(err =>{
+                    res.status(400).send("Unable to update data");
+                });
+        }
+    });
+});
 
 
 module.exports = zooRoutes;

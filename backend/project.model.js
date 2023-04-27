@@ -20,6 +20,9 @@ Projects = new Schema({
     },
     duration: {
         type: String
+    },
+    status: {
+        type: String
     }
 }, {
     collation: 'projects'

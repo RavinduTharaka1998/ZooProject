@@ -24,7 +24,8 @@ export default  class cusAddProject extends  Component{
             amount:'',
             description:'',
             type:'',
-            duration:''
+            duration:'',
+            status:''
         }
     }
     onChangeTittle(e){
@@ -59,13 +60,16 @@ export default  class cusAddProject extends  Component{
     }
     onSubmit(e){
         e.preventDefault();
+        this.state.status = "pendding";
+        alert( this.state.status)
         const obj = {
             tittle : this.state.tittle,
             owner : this.state.owner,
             amount : this.state.amount,
             description : this.state.description,
             type : this.state.type,
-            duration : this.state.duration
+            duration : this.state.duration,
+            status : this.state.status
         };
 
         
@@ -132,7 +136,7 @@ export default  class cusAddProject extends  Component{
                             </div>
                             <div className="form-group">
                                 <label>Budgeted Amount (Rs.) :</label>
-                                <input type ="number" min = "10000" required className="form-control" value={this.state.amount} onChange = {this.onChangeAmount}/>
+                                <input type ="number" min = "1000" required className="form-control" value={this.state.amount} onChange = {this.onChangeAmount}/>
                             </div>
                             <div className="form-group">
                                 <label>Description :</label>
