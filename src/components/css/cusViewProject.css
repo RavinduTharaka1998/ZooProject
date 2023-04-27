@@ -29,7 +29,19 @@
     padding: 5px;
 }
 
-.item ul li a:hover {
+/* .item ul li a:hover {
+    color: rgb(255, 251, 250);
+    background-color: tomato;
+    border-radius: 15px;
+} */
+
+.item ul li a:active, .item ul li a .active {
+    color: rgb(255, 251, 250);
+    background-color: tomato;
+    border-radius: 15px;
+}
+
+.item ul li a.active, .item ul li a:focus {
     color: rgb(255, 251, 250);
     background-color: tomato;
     border-radius: 15px;
