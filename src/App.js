@@ -11,7 +11,7 @@ import cusAddProject from './components/cusAddProject';
 import adminViewProject from './components/adminViewProject';
 import adminViewOneProject from './components/adminViewOneProject';
 import adminEditProject from './components/adminEditProject';
-
+import adminSearchProject from './components/adminSearchProject';
 
 class App extends Component{
 
@@ -27,6 +27,7 @@ class App extends Component{
                         <Route exact path='/adminViewProject' component={adminViewProject}/>
                         <Route exact path='/adminViewOneProject/:id' component={adminViewOneProject}/>
                         <Route exact path='/adminEditProject/:id' component={adminEditProject}/>
+                        <Route exact path='/adminSearchProject/:id' component={adminSearchProject}/>
                     </Switch>
                 </Router>
 

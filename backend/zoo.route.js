@@ -121,5 +121,19 @@ zooRoutes.route('/adminrejectproject/:id').get(function (req,res){
     });
 });
 
+zooRoutes.route('/adminsearchproject/:id').get(function (req, res){
+    let search = req.params.id;
+    console.log("your search is "+search);
+   
+    Projects.find({$or:[{tittle: search}, {owner: search},{amount: search},{duration: search},{description: search}]},function (err,srch){ 
+   
+        if(err)
+            console.log(err);
+        else{
+            res.json(srch)
+        }
+    });
+});
+
 
 module.exports = zooRoutes;

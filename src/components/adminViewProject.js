@@ -1,16 +1,22 @@
 import  React, {Component} from 'react';
 import axios from 'axios';
+import jsPDF from "jspdf";
+import 'jspdf-autotable';
+
 import ProjectTableRow from './adminViewProjectTableRow';
 
 import './css/cusViewProject.css';
-import zoo from './img/zoo.png'
+import zoo from './img/zoo.png';
+
 
 export default  class adminViewProject extends  Component{
 
 
     constructor(props) {
         super(props);
-        this.state = {projects : []};
+        this.state = {projects : [], search:''};
+
+        this.onChangeSearch = this.onChangeSearch.bind(this);
     }
 
     onChangeSearch(e){
@@ -36,6 +42,33 @@ export default  class adminViewProject extends  Component{
             return <ProjectTableRow obj = {object} key = {i}/>;
         });
     }
+
+    exportPDF = () => {
+        const unit = "pt";
+        const size = "A4"; // Use A1, A2, A3 or A4
+        const orientation = "portrait"; // portrait or landscape
+    
+        const marginLeft = 40;
+        const doc = new jsPDF(orientation, unit, size);
+    
+        doc.setFontSize(15);
+    
+        const title = "Project Report";
+        const headers = [["Tittle","Owner", "Amount","Description", "Type","Duration", "Status"]];
+    
+        const data = this.state.projects.map(elt=> [elt.tittle, elt.owner, elt.amount, elt.description,elt.type, elt.duration,elt.status]);
+    
+        let content = {
+          startY: 50,
+          head: headers,
+          body: data
+        };
+    
+        doc.text(title, marginLeft, 40);
+        doc.autoTable(content);
+        doc.save("projectReport.pdf")
+      }
+
 
     render() {
         return(
@@ -65,7 +98,14 @@ export default  class adminViewProject extends  Component{
                 <hr/>
 
                 <h2>Customers Projects</h2>
-
+                <from style ={{float:'right',display:'flex',gap:5}} onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                        <input type ="text" required value={this.state.search} onChange = {this.onChangeSearch} className="form-control"/>
+                    </div>
+                    <div className="form-group" style ={{float:'right'}}>
+                        <a href ={"/adminSearchProject/"+this.state.search} style ={{float:'right',background:'#313332',padding:7,borderRadius:5,color:'white',textDecoration:'none'}}>Search</a>
+                    </div>
+                </from>
                 <table className="table table-striped" style = {{marginTop :20}}>
                             <thead>
                                 <tr>
@@ -80,6 +120,7 @@ export default  class adminViewProject extends  Component{
                                 {this.tabRow()}
                             </tbody>
                 </table>
+                <button className='btn btn-info' onClick={() => this.exportPDF()}>Export Result</button>
                 <br/>
                 <hr/>
                 <br/>

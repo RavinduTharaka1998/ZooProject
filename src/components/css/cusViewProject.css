@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     gap: 80px;
-    background-color: rgb(235, 176, 166);
+    /* background-color: rgb(235, 176, 166); */
     border-radius: 15px;
 }
 
@@ -35,7 +35,7 @@
     border-radius: 15px;
 } */
 
-.item ul li a:active, .item ul li a .active {
+/* .item ul li a:active, .item ul li a .active {
     color: rgb(255, 251, 250);
     background-color: tomato;
     border-radius: 15px;
@@ -45,7 +45,7 @@
     color: rgb(255, 251, 250);
     background-color: tomato;
     border-radius: 15px;
-}
+} */
 
 .row {
     height: 200px;
@@ -69,7 +69,7 @@
 }
 
 h2 {
-    background-color: rgb(235, 176, 166);
+    /* background-color: rgb(235, 176, 166); */
     padding: 5px;
     border-radius: 15px;
     text-align: center;

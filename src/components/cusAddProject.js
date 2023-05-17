@@ -105,7 +105,7 @@ export default  class cusAddProject extends  Component{
                             <li><a href = "/">Home</a></li>
                             <li><a href = "">Booking</a></li>
                             <li><a href = "">Animals</a></li>
-                            <li><a href = "">Zoo Projects</a></li>
+                            <li><a href = "/">Zoo Projects</a></li>
                             <li><a href = "">Contact Us</a></li>
                             <li><a href = "">About Us</a></li>
                             <li><a href = "">Profile</a></li>
