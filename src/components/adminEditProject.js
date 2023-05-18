@@ -111,9 +111,9 @@ export default  class adminEditProject extends  Component{
     render() {
         return(
 
-            <div className='cusadd'>
+            <div>
                
-               <div className='top'>
+               {/* <div className='top'>
                     <div className='tittle'>
                            <h2>Animal Haven</h2>
                     </div>
@@ -130,11 +130,27 @@ export default  class adminEditProject extends  Component{
                     </div>
                 </div>
                 <br/>
-                <hr/>
+                <hr/> */}
+
+                    <div class="sidebar">
+                        <center>
+                            <h2>Animal Haven</h2>
+                            <h6>Admin Dashboard</h6>
+                        </center>
+                        <br/>
+                        <li><a href = "">Home</a></li>
+                            <li><a href = "">Booking</a></li>
+                            <li><a href = "">Animals</a></li>
+                            <li><a href = "" className = 'active'>Zoo Projects</a></li>
+                            <li><a href = "">Contact Us</a></li>
+                            <li><a href = "">About Us</a></li>
+                            <li><a href = "">Profile</a></li>
+                    </div>
 
                 <div class="content">
-                    <div className="container " style={{marginTop:10}}>
-                        <h3 className="text-center" style={{borderBottom:'tomaato solid'}}>Edit Current Project</h3>
+                    <div className="container">
+                        <br/>
+                        <h3 className="text-center" style={{fontSize:30,color:'white',marginBottom:30}}>Edit Current Project</h3>
                         <hr/>
                         <br/>
                          <center>
@@ -142,7 +158,7 @@ export default  class adminEditProject extends  Component{
                          </center>
                         <br/>
                         <hr/>
-                        <form onSubmit={this.onSubmit}>
+                        <form onSubmit={this.onSubmit} style = {{marginTop :20,marginLeft:240,width:'80%',color:'white'}}>
                             <div className="form-group">
                                 <label>Project Tittle :</label>
                                 <input type ="text" required  className="form-control" value={this.state.tittle} onChange = {this.onChangeTittle}/>

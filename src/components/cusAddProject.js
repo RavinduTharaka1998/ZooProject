@@ -115,7 +115,7 @@ export default  class cusAddProject extends  Component{
                 <br/>
                 <hr/>
 
-                <div class="content">
+                <div class="cus-content">
                     <div className="container " style={{marginTop:10}}>
                         <h3 className="text-center" style={{borderBottom:'tomaato solid'}}>Add New Project</h3>
                         <hr/>

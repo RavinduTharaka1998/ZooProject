@@ -22,7 +22,7 @@ class TableRow extends Component {
                    {this.props.obj.owner}
                </td>
                <td>
-                   <Link to={"/adminViewOneProject/"+this.props.obj._id} className="btn btn-dark">Get Action</Link>
+                   <Link to={"/adminViewOneProject/"+this.props.obj._id} className="btn btn-info">Get Action</Link>
                </td>
            </tr>
         );

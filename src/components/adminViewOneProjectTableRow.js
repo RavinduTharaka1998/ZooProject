@@ -34,7 +34,7 @@ class TableRow extends Component {
     render() {
         return (
             <div className='pro-details'>
-                <table className="table table-striped">
+                <table className="table table-striped" style = {{marginTop :20,marginLeft:270,width:'80%',color:'white'}}>
                    <tr>
                       <td style={{fontWeight:'bold'}}>Project Tittle</td>
                       <td>{this.props.obj.tittle}</td>
